@@ -1,0 +1,276 @@
+Sunday's
+
+
+# JavaScript Presentation Notes
+
+## Introduction
+
+Good morning everyone.
+
+Today I will present two JavaScript topics:
+
+1. Automated Testing with Mocha
+2. Polyfills and Transpilers
+
+These topics help developers write reliable code and make modern JavaScript work on older browsers.
+
+---
+
+# Part 1: Automated Testing with Mocha
+
+## Why do we need testing?
+
+When developers write code, they usually test it manually.
+
+For example, if we create a function and test it with one value, it may work. But after changing the code, another part may stop working and we might not notice.
+
+Manual testing can miss errors.
+
+Automated testing solves this problem by running tests automatically and checking whether the results are correct.
+
+This saves time and helps prevent bugs.
+
+---
+
+## What is Mocha?
+
+Mocha is a JavaScript testing framework.
+
+It helps developers run tests automatically.
+
+Mocha is usually used together with Chai, which provides assertions.
+
+Assertions are checks that compare the actual result with the expected result.
+
+Example:
+
+```javascript
+assert.equal(pow(2,3), 8);
+```
+
+This checks whether the function returns 8.
+
+---
+
+## What is BDD?
+
+BDD stands for Behavior Driven Development.
+
+BDD combines:
+
+* Testing
+* Documentation
+* Examples
+
+The idea is simple:
+
+First write tests, then write the code.
+
+This ensures that the program behaves exactly as expected.
+
+---
+
+## Main Components of BDD
+
+### describe()
+
+Used to group tests.
+
+```javascript
+describe("pow", function() {
+});
+```
+
+It tells us what functionality is being tested.
+
+---
+
+### it()
+
+Used for a specific test case.
+
+```javascript
+it("raises to n-th power", function() {
+});
+```
+
+It describes one behavior of the function.
+
+---
+
+### assert.equal()
+
+Checks whether two values are equal.
+
+```javascript
+assert.equal(pow(2,3),8);
+```
+
+If they are not equal, the test fails.
+
+---
+
+## Development Process
+
+The development process usually follows these steps:
+
+1. Write a test.
+2. Run the test.
+3. The test fails.
+4. Write the code.
+5. Run the test again.
+6. The test passes.
+7. Add more tests and repeat.
+
+This process improves software quality.
+
+---
+
+## Other Useful Functions
+
+### before()
+
+Runs once before all tests.
+
+### after()
+
+Runs once after all tests.
+
+### beforeEach()
+
+Runs before every test.
+
+### afterEach()
+
+Runs after every test.
+
+These functions help prepare and clean up the testing environment.
+
+---
+
+## Benefits of Automated Testing
+
+* Finds bugs early.
+* Makes code more reliable.
+* Helps developers change code safely.
+* Improves software quality.
+* Saves time in large project
+
+---
+
+# Part 2: Polyfills and Transpilers
+
+JavaScript changes every year.
+
+New features are added regularly.
+
+The problem is that older browsers may not support these new features.
+
+To solve this issue, developers use:
+
+1. Transpilers
+2. Polyfills
+
+---
+
+## What is a Transpiler?
+
+A transpiler converts modern JavaScript code into older JavaScript code.
+
+This allows new code to run in older browsers.
+
+Example:
+
+Modern code:
+
+```javascript
+height = height ?? 100;
+```
+
+Older browsers may not understand the ?? operator.
+
+A transpiler converts it into older syntax that browsers can understand.
+
+---
+
+## Babel
+
+One of the most popular transpilers is Babel.
+
+Developers use Babel to automatically convert modern JavaScript into compatible JavaScript.
+
+---
+
+## What is a Polyfill?
+
+A polyfill adds missing functions to old browsers.
+
+Example:
+
+```javascript
+Math.trunc(1.23)
+```
+
+Some old browsers do not support Math.trunc().
+
+A polyfill creates that function so the browser can still run the code.
+
+In simple words:
+
+A polyfill fills the gap when a feature is missing.
+
+---
+
+## Difference Between Transpilers and Polyfills
+
+Transpiler:
+
+* Converts modern syntax into older syntax.
+
+Polyfill:
+
+* Adds missing functions or features.
+
+Easy way to remember:
+
+Transpiler = Rewrite code.
+
+Polyfill = Add missing functionality.
+
+---
+
+# Conclusion
+
+To conclude:
+
+Automated Testing with Mocha helps developers test code automatically and reduce errors.
+
+BDD encourages writing tests before implementation.
+
+Transpilers help modern JavaScript run on older browsers.
+
+Polyfills add missing features that old browsers do not support.
+
+Together, these tools make JavaScript applications more reliable and compatible.
+
+Thank you.
+
+
+
+
+
+
+
+
+
+
+The development flow
+The flow of development usually looks like this:
+
+An initial spec is written, with tests for the most basic functionality.
+An initial implementation is created.
+To check whether it works, we run the testing framework Mocha (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
+Now we have a working initial implementation with tests.
+We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
+Go to 3, update the implementation till tests give no errors.
+Repeat steps 3-6 till the functionality is ready.

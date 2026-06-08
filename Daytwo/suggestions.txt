@@ -1,0 +1,7 @@
+1.the 3 are modal .covered
+2.prompt defult valuees and parameters 
+3.confirm retuns 1 and 0 or true or false
+4.pre and post 
+5.not equal 
+6,ternary  opration 
+

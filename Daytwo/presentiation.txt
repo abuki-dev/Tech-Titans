@@ -1,0 +1,43 @@
+->>from the previus we discussed about the js fundamentals variables how engine works comments structure of the js code linking and other topics 
+1. alet ,prompt and confirm
+A.Alert
+-->alert alet simplt popoup message then wits the user to "OK"
+->this called modal window (modal only we interract to itoter ting in teh page is diseabled)
+styntax= alert("Hello");
+B.prompt
+-->this also amodal type which we accept the value from teh users simpy user imputig but that not modern way jsut simply to know it beeter 
+-->syntax prompt(title, [default]);
+--> propt accepts 2 vriables teh title is teh messag teh teh user sees on teh pop up window and teh default is the default if the user presses ok simply or accidentaly
+--> retuns the alue i ftyped if cancel returns null
+C.confirm
+--> thsi is also  amodal type as the name reffered we ask confirmtion message ok and cancel from teh user taht returns true and false respectively also false if esc
+->syntax confirm("question to the user");
+There are two limitations shared by all the methods above:
+
+1. The exact location of the modal window is determined by the browser. Usually, it's in the center.
+2. The exact look of the window also depends on the browser. We can't modify it.
+
+2.Variable type conversiation
+-> as teh name refferse this sectio we wil discus about the confeting from dtaype frome one to other
+A.string conversiation
+--> convet using teh sytnax" string(variable)"; string is siply ad qutes or siply straign forward
+B.Numeric
+--> happen at matematicaloparion and also when we do conversions
+-->using teh syntax Number(variable);
+-->if teh variable can't convetedto the string is returns NAN if emty retuned 0
+-->undefined=NAN ,NAN=0;boleans 0&1 
+C.boleans
+-->boleans ar converted simpty to 0 and 1
+--> usng boolean(variable)
+-->null undefined NAN empty are fales the rest are true 
+
+3.Basic operation
+-->terms operands(operation acceptors) urnary(singles operand only) and binary(two operabds);
+-->maths
+- Addition `+`,
+- Subtraction `-`,
+- Multiplication `*`,
+- Division `/`,
+- Remainder `%`,
+- Exponentiation `**`.
+

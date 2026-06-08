@@ -1,0 +1,7 @@
+1.Create a web-page that asks for a name and outputs it.
+2 fix 
+let a = prompt("First number?", 1);
+let b = prompt("Second number?", 2);
+
+alert(a + b); // 12
+3.task6 while loops080

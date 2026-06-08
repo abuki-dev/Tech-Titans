@@ -1,0 +1,104 @@
+1. what javascript inrtoductions and basic concepts
+-> codes that inteded to make the web page alive
+runs when the html runs on browser no need of exter nal compilers this is what make is differ form other programing languages run on web engine or any server
+-- how this engine works--
+1. The engine (embedded if it's a browser) reads ("parses") the script.
+2. Then it converts ("compiles") the script to machine code.
+3. And then the machine code runs, pretty fast.
+
+--what can js actualy do--
+-> if it on the node js read and write files .....'netework request '?
+-> but if it's on browser it does web manipualtion related concepts(events click and dom manilupation And soon);
+
+--in broser what can't do--
+-->if we are on the browsr the erad adn write is prevented this means no accesong teh hard disk files 
+-->neighbor web page donot know  each other user safety is the cause
+-->but outside the broser they can acces eachoter
+
+--what makes the js unique----
+->integrit with html and css
+->supporeted by every browser
+->rus simply also 
+-> converted to js some programing languages(Ts,csr,flow,dart,koltin,Bruthon)
+
+2.specifications
+-->oncenwe finished we need resoureces like (MDN,////)
+-->manuals
+
+3.code edtors
+-->IDE(guge part we didint neeed it were sdi==sing js),VScode,Webstorm and soo on tis is what we choose
+
+4.devtools
+-->wen making erros and oter tings we may need to se teh erros and soon 
+-->f12 topen it shen we se teh console tab tehfe tehn we use and run commnads 
+-->inshorrt we use it for debugging ,runcommands ,examine variables are they actulay working the goal they intended to   or not 
+
+_____Gettign started_______
+1.hellow world
+-->how to attach teh script to our html file then we run in usi g tehcommand lien node my.js
+a. attach using teh script tag
+-->this can be inserted evry where  on the html and contan tehjs code to be excuted wehn teh html runs 
+b.modern markaups
+-->tyepe atribite on old html 4
+ <script type="text/javascript"><!--
+        
+    //--></script>
+    this goona make the js hidden and don't run at all
+c.using external scripts by  linking like  the css 
+we can connect using the src inside teh script tag the specifiy the path
+we can link url path aslo sice teh wweb stores it on teh cahe we can us that stored js instade of it instade of dawnloading it 
+
+<script src="my.js"><script>
+when the codes are more complex we use this external linking that teh standard and moder way 
+--> tehe singel script tag cannot have both src nad inline code we only use one but we can do 2 script tages tehn link on eand set teh other to the inline code if nessary 
+----tasks here-----
+1.linking teh html using the 3 ways we tryd here using teh aler to test it 
+
+
+2 Code structure
+a.statments are single line of code in js
+-->and aslo they are written in one line ASAP make more readable and simple
+b.semi colons
+-->we use it wehn there is line break or code brak points if nessary
+-->but js automticaly separetes each line ofcode using teh semi columns sometimes if only existed teh line break
+--> adding the semicol at teh end of evey file  and erros if missed are hard to find also 
+--> if no semiocolons teh js engine looks it as asingline of statanent 
+c.commnets 
+--> does not affect the code excutions simly disewabled part of the js code
+--> adding cooment is good habit tah increases production and overall code qualty  and redability but wehn publishind some remove the coments teh publish it 
+
+3 Use stict mode 
+--> using teh "use strict"; to force teh js run in the modern js code 
+--> we can use  teh beggnig of functions or maybe on headre of teh js to make the engine or force him to use the moders js and added at teh top of teh script otherwise tehy are ignored
+-->over all use strict is just not recommended because moder js includes veryting we nedded 
+
+4 variables
+--> variables are simply values atored at teh declared variable teh we use it later
+--> in js we can inicialize usig let or const  old achool var
+--> declaration must be onece no re dcalaration but we can re declar in scoped versions
+--> cnanot start with nuber and not ncludes hypens"-" inside teh text
+--> namin aslo mshoud be in understandable way to remmber easyly and to use it that teh core here 
+>> do some operations here declar add define uisng the js some taskes ar nedded as practice
+
+5 Dta types 
+--> we can put anytypes of data inside the variable we dclarde fom in tot string fom eachtype to each type  just js is flexible on this "dynamically typed"
+
+-->teh value isnide the variables are types of one oe teh following =>
+a.Number
+  =>intigers are basic and we kno that they are numbers but also (infinity ,NaN,-infinity) are number also belog to this data type
+..>NaN is simpy the error occur during te matenatical opretions called nan
+--> integer and floating point numbers also included here 
+b.Bingint
+--> to the numbers that are greter than or out of boundes
+--> at the end of teh nubr tehy contain n
+c.string
+--> must be surronded by quets double or songle 
+--> single scan be add insje them using ${str} teh expression iside teh qutes examined as sngle expresion.
+
+
+
+
+
+
+
+

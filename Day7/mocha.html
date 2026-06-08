@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //what we test goes  here
+    </script>
+    <div id="mocha"></div>
+
+    <script>
+      const assert = chai.assert;
+      mocha.setup("bdd");
+      describe("test 1", () => {
+        it("1+1", () => {
+          assert.equal(1 + 1, 2);
+        });
+      });
+      mocha.run();
+    </script>
+  </body>
+</html>
