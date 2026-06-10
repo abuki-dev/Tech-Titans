@@ -1,6 +1,10 @@
 let Calculator = {
   num1: 0,
   num2: 0,
+  read(X, Y) {
+    this.num1 = X;
+    this.num2 = Y;
+  },
   sum() {
     this.Sum_Result = this.num1 + this.num2;
   },
@@ -15,13 +19,11 @@ let Calculator = {
       `The Result of ${this.num1} X ${this.num2} =${this.Mult_Result}`,
     );
   },
+  Get_Sum_result() {
+    return this.Sum_Result;
+  },
+  Get_Mult_Result() {
+    return this.Mult_Result;
+  },
 };
-function read() {
-  this.num1 = 15;
-  this.num2 = 40;
-}
-Calculator.read = read;
-Calculator.read();
-Calculator.Multip();
-Calculator.sum();
-Calculator.Display_Results();
+module.exports = Calculator;
