@@ -12,3 +12,8 @@ console.log(Clone_BOOK.Auttor); //jhon smith
 console.log(Asssigning.Auttor); //also Jhon smith
 delete Book.price;
 console.log(Copy_Book);
+const User = {
+  name: "jhon",
+};
+
+let clone = { ...User };
