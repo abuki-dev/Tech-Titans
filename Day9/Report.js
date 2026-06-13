@@ -48,7 +48,7 @@ const transactions = [
     category: "Electronics",
     product: "Laptop",
     price: 1000,
-    quantity: 1,
+    quantity: 10,
     date: "2026-06-05",
   },
 ];
