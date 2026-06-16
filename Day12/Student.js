@@ -10,8 +10,8 @@ const Students = [
     gender: "male",
     coureces: {
       cource1: 85,
-      cource2: 67,
-      cource3: 40,
+      cource2: 100,
+      cource3: 100,
     },
     status: "",
   },
@@ -81,7 +81,7 @@ function get_status(student_average) {
   if (student_average >= 70) return "Pass poromoted";
   else if (student_average >= 60) return "Warrning";
   else if (student_average >= 50) return "Fail";
-  else return "No grade report";
+  else return "NG";
 }
 function generate_yearlyreport(students_data) {
   students_data.forEach((student) => {
@@ -127,26 +127,26 @@ function update_students_data(array_students, report_object) {
     report_object.push(currunet_data);
   }
 }
-function generate_rank(students_data) {
-  let to_be_continued = [];
-  let rank_1 = 1;
-  for (let index = 0; index < students_data.length; index++) {
-    to_be_continued.push(rankindex);
+function sort_for_rank(students_data) {
+  for (let index = 0; index < students_data.length - 1; index++) {
+    let grater_averad = index;
+    for (let j = index + 1; j < students_data.length; j++) {
+      if (students_data[j].average > students_data[grater_averad].average) {
+        grater_averad = j;
+      }
+    }
+    swap(students_data, index, grater_averad);
   }
-  console.log(to_be_continued);
+  for (let y = 0; y < students_data.length; y++) {
+    if (students_data[y].grade == "NG") students_data[y].rank = "-";
+    else students_data[y].rank = y + 1;
+  }
+}
+function swap(arr, i, j) {
+  let old = arr[i];
+  arr[i] = arr[j];
+  arr[j] = old;
 }
 update_students_data(Students, section_report);
-
-generate_rank(section_report);
-
-//lean startup...
-//limit less
-//25 secrets of sucsuss
-//start with why
-//
-//ethio dev
-
-//accsepting and starting from the student 1
-//curunt index push tobe continued
-//else if average is gereter updtate the average index
-//finshi iterations set the rank to index
+sort_for_rank(section_report);
+console.log(section_report);
