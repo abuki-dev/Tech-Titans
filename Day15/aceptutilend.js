@@ -64,3 +64,48 @@
 // }
 
 //  readNumber();
+
+let students = [
+  {
+    name: "Abuki",
+    score: 22, // Use this to check the logic
+    isGraduated: false, // Toggle this if they pass
+  },
+  {
+    name: "Abuki",
+    score: 76, // Use this to check the logic
+    isGraduated: false, // Toggle this if they pass
+  },
+  {
+    name: "Abuki",
+    score: 30, // Use this to check the logic
+    isGraduated: false, // Toggle this if they pass
+  },
+  {
+    name: "Abuki",
+    score: 40, // Use this to check the logic
+    isGraduated: false, // Toggle this if they pass
+  },
+  {
+    name: "Abuki",
+    score: 76, // Use this to check the logic
+    isGraduated: false, // Toggle this if they pass
+  },
+];
+//using map
+//accept cussut user
+//chek if tthe suer scored aboce 50
+//if above status passed togle graduate true
+//elese faild status fauled
+
+function update_Students(student) {
+  if (student.score >= 50) {
+    student.status = "Passed";
+    student.isGraduated = true;
+  } else {
+    student.status = "Failed";
+  }
+}
+
+students.map(update_Students, students);
+console.log(students);
