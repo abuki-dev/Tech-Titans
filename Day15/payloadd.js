@@ -19,8 +19,10 @@ const badApiData = {
   user_name: "abuki_dev",
 };
 function normalize(apiData) {
-  this.username = apiData.username;
-  this.access = "scroll";
+  apiData.username = apiData.user_name;
+  apiData.role = "Guest";
+  apiData.access = true;
+  delete apiData.user_name;
   return apiData;
 }
 let update = normalize(badApiData);
