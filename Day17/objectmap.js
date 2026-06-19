@@ -1,0 +1,14 @@
+let user_map = new Map();
+user_map.set("stud 1", "abuki");
+user_map.set("stud 2", "hiru");
+user_map.set("stud 3", "halumii");
+user_map.set("stud 4", "remli");
+user_map.set("stud 5", "susii");
+user_map.set("stud 6", "jibii");
+user_map.set("stud 7", "abuii");
+user_map.set("stud 8", "kira");
+let object_from_map = Object.fromEntries(user_map);
+console.log(object_from_map);
+let back_tomap = new Map(Object.entries(object_from_map));
+console.log(back_tomap);
+console.log(back_tomap.get("stud 6"));
