@@ -9,8 +9,15 @@ function create_Uniqearray(oldArray) {
       unique.add(element);
     }
   });
-  oldArray = unique;
-  return oldArray;
+
+  return unique;
+}
+function is_Unique(array) {
+  let obj = {};
+  array.forEach((element) => {
+    obj[element] = element;
+  });
+  return Object.keys(obj);
 }
 let values = [
   "Hare",
@@ -24,4 +31,5 @@ let values = [
   ":-O",
 ];
 let result = create_Uniqearray(values);
-console.log(result);
+console.log(is_Unique(values));
+console.log(create_Uniqearray(values));
