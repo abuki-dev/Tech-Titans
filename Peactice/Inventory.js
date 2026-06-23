@@ -1,5 +1,5 @@
 //goal is updating the invetory products
-//od operations where the quintiii is geter tha zero
+//od operations where the quanity is geter tha zero
 // map and updat ethe proce of each element by 10% discount
 //reduce then calcukat eteh total vlue of remainings
 const inventory = [
