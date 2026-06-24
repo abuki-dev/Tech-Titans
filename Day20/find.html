@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript DOM Practice</title>
+  </head>
+  <body>
+    <table id="age-table">
+      <thead>
+        <tr>
+          <td>Age</td>
+          <td>Name</td>
+          <td>Status</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <label for="age1">Age 18-25:</label>
+            <input type="radio" id="age1" name="age-group" />
+          </td>
+          <td>John</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="age2">Age 26-40:</label>
+            <input type="radio" id="age2" name="age-group" />
+          </td>
+          <td>Jane</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>
+            <label for="age3">Age 41+:</label>
+            <input type="radio" id="age3" name="age-group" />
+          </td>
+          <td>Pete</td>
+          <td>Inactive</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+    <hr />
+    <br />
+
+    <form name="search">
+      <div>
+        <input
+          type="text"
+          name="search-query"
+          placeholder="Search criteria..."
+        />
+      </div>
+
+      <div>
+        <input type="checkbox" name="exact-match" id="exact" />
+        <label for="exact">Exact match only</label>
+      </div>
+
+      <div>
+        <input type="submit" value="Search Now" />
+      </div>
+    </form>
+    <script src="./task.js"></script>
+  </body>
+</html>
