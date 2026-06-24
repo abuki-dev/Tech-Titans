@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+button {
+  border-radius: 6px;
+}
+button:hover {
+  transform: translatey(-2px);
+}
