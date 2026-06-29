@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+.alert {
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+#mylist {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+li {
+  color: black;
+  background-color: goldenrod;
+  border: solid aqua;
+  border-radius: 15px;
+  width: max-content;
+  cursor: pointer;
+}
+li:active {
+  background-color: aqua;
+  shape-margin: 15px;
+}
