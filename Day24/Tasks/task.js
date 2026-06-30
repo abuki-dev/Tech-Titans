@@ -18,3 +18,9 @@ function callbackme() {
     }, 500);
   }
 }
+
+if (document.getElementById("hafiz")) {
+  let abcd = document.createElement("p");
+  abcd.textContent = "elememn created";
+  document.body.append(abcd);
+}
