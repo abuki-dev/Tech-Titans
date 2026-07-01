@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.everyting {
+  display: flex;
+  justify-content: center;
+  background-color: green;
+  width: 60%;
+  padding: 40px 0;
+  border-radius: 1pc;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 70%;
+  gap: 10px;
+  border: solid;
+  padding: 10px;
+}
+.turns {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 10px;
+  width: 65%;
+  height: 9%;
+}
+.turn {
+  background-color: white;
+  padding: 30px;
+  width: 100px;
+  border-radius: 2pc;
+}
+.box {
+  padding: 40px;
+  border-radius: 2pc;
+  background-color: white;
+}
+.turn1 {
+  background-color: greenyellow;
+}
+.turn2 {
+  background-color: aqua;
+}
