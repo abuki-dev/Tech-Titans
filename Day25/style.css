@@ -1,0 +1,31 @@
+button {
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 1pc;
+  padding: 20px;
+  font-weight: 500;
+  font-size: medium;
+}
+body {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#gp {
+  background-color: bisque;
+  width: 70%;
+  margin: 40%;
+  padding: 50px;
+  border-radius: 1pc;
+}
+
+#fada {
+  background-color: aquamarine;
+  padding: 60px;
+  border-radius: 1pc;
+}
+button:hover {
+  transform: translateY(-3px);
+}
