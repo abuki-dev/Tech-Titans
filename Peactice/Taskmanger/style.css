@@ -31,17 +31,22 @@ form {
 .tasks {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  align-content: center;
 }
 .task {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   border: solid;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
   margin: 10px;
   border-radius: 1pc;
   background-color: aquamarine;
+  align-content: center;
+  text-align: center;
 }
 h3 {
   padding: 0 180px;
@@ -63,7 +68,7 @@ label {
   justify-content: space-between;
   margin: 10px;
 }
-input{
+input {
   font-weight: bold;
   color: black;
 }
