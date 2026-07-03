@@ -21,7 +21,6 @@ for (const element of radios) {
 //storing global varibale for swapimg the color of the turns
 //onload generate auto turn for the game random mats then store the class or color at teh global variable
 //for each box addd event listner if cliked set the global variable class to anoter turn
-//
 
 const COLORS = ["turn1", "turn2"];
 let globalcgager = COLORS[1];
@@ -38,7 +37,6 @@ boxes.forEach((box) => {
     box.removeEventListener("click");
   });
 });
-
 function swapcolor(box) {
   if (globalcgager == COLORS[0]) {
     globalcgager = COLORS[1];
