@@ -15,6 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  flex-wrap: wrap;
 }
 button {
   color: black;
@@ -22,4 +23,13 @@ button {
   padding: 10px 80px;
   border-radius: 1pc;
   width: 100px;
+
+}
+#container{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+width: 90%;
+align-items: center;
+
 }
