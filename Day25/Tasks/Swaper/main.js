@@ -2,7 +2,6 @@
 //if cliked put currunt element to the map using event.target
 //evry click update the global variable
 //then swap them usin gteh previous method
-const buttons = document.querySelectorAll("button");
 let buttons_map = new Map();
 let ancestorr = document.getElementById("container");
 
@@ -46,16 +45,16 @@ function chekOrdered() {
 //on load generate array of numberes from 1 to 10
 //while the array is not empty
 //generate random numbur from 0 to arraylength-1
-//then cretae element button
+//then cretae element button using teh randomindex
 // assing value and textconntet to the value i the nedexed value
 //then remove the currunt element from array
-//append teh currunt button to teh container then
-//repeat until ened
+//append the currunt button to the container then
+//repeat until end
 function trunciatelists() {
   let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   ancestorr.innerHTML = "";
   while (values.length != 0) {
-    let index = Math.floor(Math.random() * (values.length - 1));
+    let index = Math.floor(Math.random() * values.length);
     let currunt_button = document.createElement("button");
     currunt_button.value = values[index];
     currunt_button.textContent = values[index];
