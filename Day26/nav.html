@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    oncontextmenu="
+      alert('Draw our menu');
+      return false;
+    "
+  >
+    <nav>
+      <li><a href="./index.html" onclick="return false;">home</a></li>
+      <a id="prevented" href="./nav.html">about</a>
+      <li oncontextmenu="alert(`hellow`)">contacts</li>
+    </nav>
+    <button id="prevent" style="color: black">abuki</button>
+    <script src="./deligations.js"></script>
+  </body>
+</html>
