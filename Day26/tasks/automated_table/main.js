@@ -41,8 +41,7 @@ let students = [
   },
 ];
 
-
-//generating automatic table from users data 
+//generating automatic table from users data
 //creat efuntion for cetating gad from teh table keys
 //use user0 as templatefor geting  the keys
 // for each key genrate TH first
@@ -53,7 +52,7 @@ let students = [
 // itereate on the entier array of the students
 //fpr each user
 //create row for currunt user
-//then creat cell for each data 
+//then creat cell for each data
 //insert aproprate data at innertext / textcontent/InnerHtml
 //iterte until end
 //return the Tbody
@@ -74,7 +73,7 @@ function createHeadof_Table(UsersData) {
     numberofhead++;
     let th = document.createElement("th");
 
-    th.textContent = [key].at(0).toLocaleUpperCase();
+    th.textContent = [key].at(0).toUpperCase();
 
     if (+UsersData[key]) th.setAttribute("data-type", "number");
     else th.setAttribute("data-type", "string");
