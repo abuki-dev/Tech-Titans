@@ -1,7 +1,7 @@
 //goal is updating the invetory products
-//od operations where the quanity is geter tha zero
-// map and updat ethe proce of each element by 10% discount
-//reduce then calcukat eteh total vlue of remainings
+//add operations to filter products where the quanity is geter than zero
+// map and update the price of each element by 10% discount
+//reduce then calcukats the total vlue of remainings
 const inventory = [
   { name: "Laptop", price: 1000, quantity: 5 },
   { name: "Phone", price: 500, quantity: 0 }, // Out of stock! Skip this.
@@ -10,10 +10,13 @@ const inventory = [
 ];
 function manageInventory(products) {
   let copy_then_use = [...products];
+
   copy_then_use = copy_then_use.filter(
     (item, index, array) => item.quantity > 0,
   );
+
   copy_then_use.map((item) => (item.price -= item.price * 0.1));
+
   let totalInvetoryValue = copy_then_use.reduce(
     (result, item) => (result += item.price * item.quantity),
     0,
