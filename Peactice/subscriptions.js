@@ -1,6 +1,6 @@
 //goal count acoout types wheter subscriotion or somting
 //collect mothly revenue
-//catagoraize account type counts
+//catagoraize account type 
 //collect inactive ussers
 //count mothly users
 
