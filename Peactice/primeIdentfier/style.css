@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: sans-serif;
+  align-items: center;
+  display: flex;
+}
+
+button {
+  color: black;
+  padding: 15px;
+}
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+}
+.green {
+  background-color: greenyellow;
+}
+.red {
+  background-color: red;
+}
+.white {
+  background-color: antiquewhite;
+}
