@@ -1,0 +1,6 @@
+.blur {
+  outline-offset: 5px;
+  border-radius: 10px;
+  color: red;
+  background-color: white;
+}
