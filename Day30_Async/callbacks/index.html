@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function load(src, callback1, calback2) {
+        let script_tag = document.createElement("script");
+        script_tag.src = src;
+        script_tag.onload = () => {
+          callback1(src);
+          calback2();
+        };
+        document.head.append(script_tag);
+      }
+      load("./main.js", displayhellow, function () {
+        myfunction();
+        load("./2nd.js", displayhellow, function () {
+          im2ndjs();
+        });
+      });
+
+      //the main funtion that we wanted to excute after adding the new script
+      function displayhellow(script) {
+        //this code runs after the new script loaded succusfully and loaded
+        console.log("hellow there ", script, "is loaded");
+      }
+
+      //this console runs first befor the main js code runs
+      console.log("this code rund befor the new script");
+      function loaderwitherro(src, callback) {
+        let script = document.createElement("script");
+        script.src = src;
+        script.onload = () => callback(null, src);
+        script.onerror = () =>
+          callback(new Error(`Script load error for ${src}`));
+        document.head.append(script);
+      }
+      loaderwitherro("./main.js", function (errodr, sucuss) {
+    if(errodr){
+        console.error(`Script load error for ${src}`)
+    }
+    else{
+        displayhellow(sucuss)
+    }
+      });
+    </script>
+  </body>
+</html>
