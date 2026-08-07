@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="form" tabindex="-1" onfocus="this.className = `focused`">
+      name
+      <input type="text" name="name" value="Name" />
+      <input type="text" name="surname" value="Surname" />
+    </form>
+    <ul>
+      <li tabindex="1">One</li>
+      <li tabindex="0">Zero</li>
+      <li tabindex="2">Two</li>
+      <li tabindex="-1">Minus one</li>
+    </ul>
+    <div id="butn">click</div>
+    <style>
+      .focused {
+        outline: 1px solid red;
+      }
+      li {
+        cursor: pointer;
+      }
+      textarea {
+        color: black;
+      }
+    </style>
+    <script>
+      form.addEventListener("focus", () => form.classList.add("focused"), true);
+      form.addEventListener(
+        "blur",
+        () => form.classList.remove("focused"),
+        true,
+      );
+      butn.addEventListener("click", () => {
+        createtexteraea(butn.innerText, butn);
+      });
+
+      function createtexteraea(value, target) {
+        let textarea = document.createElement("textarea");
+        textarea.value = value;
+        target.replaceWith(textarea);
+        textarea.addEventListener("keyup", (event) => {
+          if (event.key == "Enter") {
+            creatediv(textarea.value, textarea);
+          }
+        });
+      }
+      function creatediv(value, target) {
+        let div = document.createElement("div");
+        div.innerText = value;
+        target.replaceWith(div);
+        div.addEventListener("click", () => {
+          createtexteraea(div.innerText, div);
+        });
+      }
+    </script>
+  </body>
+</html>
