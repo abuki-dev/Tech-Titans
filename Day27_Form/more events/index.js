@@ -37,7 +37,7 @@ myform.name.addEventListener("input", (event) => {
 });
 
 // on cut and on copy doe event preventd from working 
-myform.more.addEventListener("cut", (event) => {
+myform.more.addEventListener("copy", (event) => {
   console.log(
     document.getSelection(),
     event.clipboardData.getData("text/plain"),

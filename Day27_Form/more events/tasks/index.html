@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deposit calcultor</title>
+    <style>
+      select,
+      input {
+        width: 150px;
+        color: black;
+      }
+      select {
+        background-color: aliceblue;
+      }
+      strong {
+        border: dashed blue 1px;
+        padding: 0 25px;
+        width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Deposit calcultor</h1>
+    <label for="deposit"
+      >Initial Deposit
+      <input type="number" value="10000" name="deposit" id="deposit"
+    /></label>
+    <label for="months">
+      How many Months
+      <select name="months" id="months">
+        <option value="3">3 Months</option>
+        <option value="6">6 Months</option>
+        <option value="12">1 year</option>
+      </select>
+    </label>
+    <label for="year"
+      >Interset Per Year<input type="number" name="year" value="5" id="year"
+    /></label>
+    <p>Was: <strong id="was"></strong></p>
+    <p>Becames : <strong id="becames"></strong></p>
+    <script>
+      //--first write a funton tha calculates teh inters by tehgive yer the displays at teh sepecfied location
+      // collcet elements ?
+      let intitial = document.getElementById("deposit");
+      let months = document.getElementById("months");
+      let interest = document.getElementById("year");
+      let befor = document.getElementById("was");
+      let after = document.getElementById("becames");
+      function calculate() {
+        let power = months.value / 12;
+        let resut = Math.round(
+          +intitial.value * (1 + +interest.value) ** power,
+        );
+        befor.textContent = +intitial.value;
+        after.textContent = resut;
+      }
+      calculate();
+      intitial.addEventListener("input", calculate);
+      months.addEventListener("change", calculate);
+      interest.addEventListener("input", calculate);
+    </script>
+  </body>
+</html>
