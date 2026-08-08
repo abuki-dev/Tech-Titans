@@ -3,7 +3,9 @@ elemet.addEventListener("blur", (event) => {
   event.preventDefault();
   if (!elemet.value.includes("@")) {
     elemet.classList.add("blur");
+    elemet.focus();
   } else {
-    console.log("reoved");
+    elemet.classList.remove("blur");
   }
 });
+
