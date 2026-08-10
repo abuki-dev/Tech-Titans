@@ -2,6 +2,7 @@
 //thsi is js buit in js erro class
 
 //we wil extend error from buit in Error object
+
 class customeror extends Error {
   constructor(message) {
     super(message);
@@ -11,11 +12,11 @@ class customeror extends Error {
 class InvalidKey extends Error {
   constructor(message) {
     super(message);
-    this.name = "Age Error";
+    this.name = "InvalidKey";
   }
 }
 function test() {
-  throw new customeror("Whops");
+  throw new customeror("Whops i made amistake");
 }
 try {
   test();
@@ -27,7 +28,7 @@ try {
 function loadDatas(key) {
   return new Promise((resolve, reject) => {
     try {
-      // users; users is not defined
+      hdhd;
       let allUsers = localStorage.getItem(key);
       if (!allUsers) {
         throw new InvalidKey("( Error while retriving Data under key : " + key);
@@ -42,14 +43,15 @@ function loadDatas(key) {
     }
   });
 }
-loadDatas("All ").then(
-  (fulfiled) => {
-    console.log(fulfiled);
+loadDatas("All Users").then(
+  (data) => {
+    console.log(data);
+    console.log("Im there");
   },
-  (notfulfiled) => {
-    console.error(notfulfiled);
+  (reject) => {
+    console.log("im here");
+    console.error(reject.message);
   },
 );
 
 //Further inheritance
-

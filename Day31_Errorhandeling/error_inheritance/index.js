@@ -22,7 +22,7 @@ function parsedata(message) {
   if (!usres.name) {
     throw new Propertyerror("name");
   }
-  console.log(usres);
+  console.log(usres);//dislpay if succces
 }
 function getData(key) {
   try {
@@ -42,5 +42,5 @@ function getData(key) {
 
 let Data;
 getData(Data);
-Data = '{ "age": 25 }';
+Data = '{ "name": 25 }';
 getData(Data);
