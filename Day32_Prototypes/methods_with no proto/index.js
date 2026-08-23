@@ -18,3 +18,4 @@ console.log(Rabbit.eats); //true
 Object.setPrototypeOf(Rabbit, aliens);
 console.log(Rabbit.eats); //Unknown
 console.log(Object.getPrototypeOf(Rabbit) === aliens); //Trueg
+Function.prototype.bind()
