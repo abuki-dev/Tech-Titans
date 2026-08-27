@@ -9,7 +9,6 @@
 // 3 draw weclome message funtion
 // 4 attach the cretaed object the lister (on)
 // 5 after 3 secodns emitthe event
-const { log } = require("console");
 let event_Module = require("events"); //1
 let customevent = new event_Module(); //2
 
@@ -36,3 +35,4 @@ customevent.on("registerig", () => {
   console.log("hellow world");
 }); //here we regestered it but we ddint emmit it so this code wont be run untill emmited
 //? we have to keppp teh equentse also firstignis we have to regiter tyen emmmt it
+customevent.emit("registerig");
