@@ -49,6 +49,4 @@ console.log(bufferSpace.toString()); //Now it holds the actual data Without any 
 // Buffer.isBuffer(): checks if a given object is a buffer
 // Buffer.compare(): compares two buffers and returns their sort order
 // Buffer.concat(): joins multiple buffers together into one
-let ab = [1, 2, 3, 4, 5, 6];
-const os = require("os");
-console.log(os.cpus().length);
+
