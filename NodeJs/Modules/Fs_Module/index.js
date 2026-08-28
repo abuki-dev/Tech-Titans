@@ -1,7 +1,5 @@
 // ? Fs module is givrn by the NOde.js that allowes us to work with the file systems
 // // shortly it allows us crud on files
-const { rejects } = require("assert");
-const { resolve } = require("dns");
 const fs = require("fs"); //- imported
 
 // It have bosh synk and async by default its asyc while running it
