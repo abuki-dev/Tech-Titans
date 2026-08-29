@@ -1,0 +1,13 @@
+{
+  "name": "node_pacage_manager",
+  "version": "1.0.0",
+  "description": "this is fcc course",
+  "license": "ISC",
+  "author": "abuki-dev",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": []
+}
