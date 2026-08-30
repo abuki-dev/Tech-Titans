@@ -10,7 +10,7 @@ async function writelogmessage(message) {
   try {
     let date = new Date().toISOString();
 
-    if (isThefileExists("./message.log"))
+    if (await isThefileExists("./message.log"))
       message = "\n[" + date + "] " + message;
     else message = "[" + date + "] " + message;
 
@@ -21,13 +21,13 @@ async function writelogmessage(message) {
     console.log("Error writing the file", error.message);
   }
 }
-writelogmessage("User Trunciated");
 
 //Now let us reade teh log datas of taht files
 //get asynf funtion that rys to read promse dtas and display them
 async function readLogdatas(filepath) {
   try {
-    if (!isThefileExists(filepath)) throw new Error("The file doesnt exists");
+    if (!(await isThefileExists(filepath)))
+      throw new Error("The file doesnt exists");
     //else we can go and read the actual data
     let logdatas = await Fs.readFile(filepath, "utf8");
     // then desplay it
@@ -36,7 +36,6 @@ async function readLogdatas(filepath) {
     console.log("Error while retiving datas ", error.message);
   }
 }
-readLogdatas("./message.log");
 
 async function isThefileExists(path) {
   try {
@@ -47,3 +46,8 @@ async function isThefileExists(path) {
     return false;
   }
 }
+async function main() {
+  await writelogmessage("User Trunciated");
+  await readLogdatas("./message.log");
+}
+main();
