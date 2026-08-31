@@ -5,9 +5,7 @@ const Fs = require("fs/promises");
 async function readDirectory() {
   try {
     let items = await Fs.readdir("../", { withFileTypes: true });
-    for (const element of items) {
-      console.log(element.name, element.isFile() ? "File" : "Directory");
-    }
+    console.log(items);
   } catch (error) {
     console.log(error.message);
   }
@@ -27,17 +25,10 @@ async function cerateFolders() {
 async function sethefilemethadata() {
   try {
     let data = await Fs.stat("./index.js");
-    console.log(data);
+    console.log("size of the data", data.size);
   } catch (error) {
     console.log("Erroe reading the meta data", error.message);
   }
-}
-
-async function main() {
-  await cerateFolders();
-  await readDirectory();
-  await sethefilemethadata();
-  await copyfiles();
 }
 
 //Funtion to copy the data to new locations
@@ -52,6 +43,33 @@ async function copyfiles() {
   } catch (error) {
     console.log("Error coping files ");
   }
+}
+// let us add rmove fs mosdule using rm
+async function removeDirectory() {
+  try {
+    await Fs.rmdir("./asset"); //Rmdir works only in the the directories if file exist onside it gets error ENOTDIR
+    console.log("Removed sucussfully");
+  } catch (error) {
+    console.log("Errow whioe Removig Directpry", error.message);
+  }
+}
+//To use remove with the files and nesteds we must use rm woth recurcive and force
+// this method removes the files inside it
+async function remove() {
+  try {
+    await Fs.rm("./trash/kb.js");
+    console.log("Removed usinf rm -rf");
+  } catch (error) {
+    console.log("error removing using rm -rf", error.message);
+  }
+}
+async function main() {
+  await cerateFolders();
+  await readDirectory();
+  await sethefilemethadata();
+  await copyfiles();
+  await removeDirectory();
+  await remove();
 }
 
 main();
