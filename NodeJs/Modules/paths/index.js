@@ -1,13 +1,13 @@
 //The path module it alows us to use files and directries paths
 const path = require("path");
 // __filename is the absolute path of the current file and __dirname is the absolute path of the directory containing the current file.
-console.log(__dirname); //global variables not included in path module
+console.log(__dirname, 1); //global variables not included in path module
 console.log(__filename); //from teh absolute path to the currunt file
-//basename() shows teh last part of the file  that we are working on
+//basename() shows the last part of the file  that we are working on
 console.log(path.basename(__filename));
 
 // extname() tells teh extention name for the file
-console.log(path.extname(__filename)); //.js that the currunt file funning on
+console.log(path.extname("index.ts")); //.js that the currunt file funning on
 
 //dirname() the directory name or currunt folder
 console.log(path.dirname(__dirname)); //Path to teh currunt dirname

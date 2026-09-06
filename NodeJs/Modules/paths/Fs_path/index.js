@@ -11,13 +11,17 @@ const path = require("path");
 async function readdirectory(directory) {
   try {
     let contents = await Fs.readdir(directory, { withFileTypes: true });
-    console.log(contents);
+    // console.log(contents);for debugingc
     //we will pass to teh chek and remover
     if (contents.length == 0) {
       console.log("Currunt direcory is empty");
       return;
     }
-    console.log("Cheking Directory ", contents[0].name);
+    console.log(
+      "\n Cheking Directory ",
+      path.join(contents[0].parentPath, contents[0].name),
+      "\n",
+    );
     await chekAndRemove(contents);
   } catch (error) {
     console.log("Error Readindg directory", error.message);
@@ -28,19 +32,20 @@ async function chekAndRemove(items) {
   items.forEach((item) => {
     if (item.isDirectory()) {
       //calback the directory
-      readdirectory(item.parentPath + "/" + item.name);
+   readdirectory(path.join(item.parentPath, item.name));
     } else if (item.isFile()) {
       //let chek the extention the remove
       removeFile(item);
     } else console.log(item, "Is neither file nor directory");
   });
 }
+
 async function removeFile(file) {
   try {
-    //let us check the extebtion
-    if (path.extname(file.name) == ".log") {
+    //let us check the extantion
+    if (path.extname(file.name) == ".key") {
       //we can remove teh file
-      await Fs.rm(file.parentPath + "/" + file.name, {
+      await Fs.rm(path.join(file.parentPath, file.name), {
         recursive: true,
         force: true,
       });
@@ -50,4 +55,4 @@ async function removeFile(file) {
     console.log("Error while removing", file);
   }
 }
-readdirectory("../");
+readdirectory("../../");
