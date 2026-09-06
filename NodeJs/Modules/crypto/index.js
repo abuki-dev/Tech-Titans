@@ -95,7 +95,7 @@ function createVerfy(message, publicKey, signature) {
 
 //Method1 sinature
 function signatureMethod(privatekey, buffuredmessage) {
-  return crypto.sign("sha256", buffuredmessage, privateKey);
+  return crypto.sign("sha256", buffuredmessage, privatekey);
 }
 
 function verfySignaturemethod(publicKey, buffuredmessage, signature) {
