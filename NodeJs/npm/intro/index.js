@@ -42,3 +42,10 @@
   }
 } */
 //in the above project we have dependecies chalk an loahsh those are instaled and are helpin gour projec
+console.log("Im running using the npm command");
+// to use npm commands and scripts we can use  scripts nsid eteh pcage
+/*  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node main.js"
+  }, */
+  //to run teh aove we simp,y use npm run start and 

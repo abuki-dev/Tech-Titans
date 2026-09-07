@@ -7,7 +7,11 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "start"
+    "server": "node ./intro/server.js ",
+    "client": "node ./intro/index.js",
+    "dev": "node ./intro/index.js && node ./intro/server.js",
+    "all": "npm run server & npm run client",
+    "power": "node ./commonjs/main.js"
   },
   "keywords": []
 }
