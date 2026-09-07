@@ -64,10 +64,11 @@ function gethmac(message) {
 }
 const orginalMessage = "Trsanfer $1,000 to Bob";
 let hassed = gethmac(orginalMessage);
+//let us signature usign our private key
 const signature = crypto.sign("sha256", hassed, privateKey);
 
 console.log("sinature ", signature.toString("base64"));
-
+//now let us chke it aganin using signature tha gaven us and teh oublic key 
 const isValid = crypto.verify("sha256", hassed, publicKey, signature);
 console.log("fisr message result ", isValid);
 

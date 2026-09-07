@@ -62,7 +62,7 @@ async function retriveEncrypted() {
     );
     key = Buffer.from(key, "hex");
     iv = Buffer.from(iv, "hex");
-    encrypted=Buffer.from(encrypted,"base64")
+    encrypted = Buffer.from(encrypted, "base64");
     let decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
     let decrpted = decipher.update(encrypted, "base64", "utf8");
     decrpted += decipher.final("utf8");
@@ -84,6 +84,8 @@ async function readFile(path) {
 }
 async function main() {
   await generateCipher("Abubeker Ahmed Ali");
-  await retriveEncrypted().then((dataiside) => console.log(dataiside));
+  await retriveEncrypted().then((dataiside) =>
+    console.log("The stored data was ", dataiside),
+  );
 }
 main();
