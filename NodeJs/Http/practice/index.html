@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/register" method="POST">
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Enter username"
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <button type="button" id="getData">Display Users Saved</button>
+    <script>
+      document.forms[0].addEventListener("submit", async (event) => {
+        event.preventDefault();
+        //Getin the value of the email
+        const username = document.getElementById("username").value;
+        //Gnerating response request table for the the server
+        try {
+          const response = await fetch("/register", {
+            method: "POST",
+            headers: { "content-Type": "application/json" },
+            body: JSON.stringify({ username: username }),
+          });
+          //await the result
+          const result = await response.text();
+          console.log("server response,", result);
+          alert("Registrations sucussus");
+        } catch (error) {
+          console.error("Fetch Error", error);
+        }
+      });
+      let getData = document.getElementById("getData");
+      getData.addEventListener("click", async (event) => {
+        event.stopImmediatePropagation();
+        //Let us get the saved File iside the consile it at the browser
+        // first the us generate request to the server using method and other thinhgs
+        //When the response returned from the server just console it
+        let dataReuest = await fetch("/getuser", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error(error.message);
+          });
+      });
+    </script>
+  </body>
+</html>

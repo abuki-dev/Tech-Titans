@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button
+      type="button"
+      id="getBook"
+      style="color: black; background-color: wheat"
+    >
+      Get all Avalable Books
+    </button>
+    <form action="/addnewBook" method="POST">
+      <label for="bookname"
+        ><input
+          style="color: black; background-color: wheat"
+          type="text"
+          name="bookname"
+          id="bookname"
+          placeholder="input book name"
+      /></label>
+      <button type="submit" style="color: black; background-color: wheat">
+        Add new Book
+      </button>
+    </form>
+  </body>
+  <script>
+    let get = document.getElementById("getBook");
+    get.addEventListener("click", async (event) => {
+      event.stopImmediatePropagation();
+      fetch("/getData")
+        .then((data) => {
+          let jsondata = data.json();
+          return jsondata;
+        })
+        .then((books) => console.log(books))
+        .catch((error) => {
+          console.error(error.message);
+        });
+    });
+    let form = document.forms[0];
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      let bookname = form.bookname.value;
+      console.log(bookname);
+      let response = await fetch("/addnewBook", {
+        headers: { "content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ name: bookname }),
+      }).catch((error) => {
+        console.warn(error.message);
+      });
+      response = await response.json();
+      console.log("AFTER ADDING NEW BOOK the server sent us ", response);
+    });
+  </script>
+</html>
