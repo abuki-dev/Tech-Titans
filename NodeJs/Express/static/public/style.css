@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+}
+h1 {
+  font-style: italic;
+  padding: 15px;
+  border: solid aqua;
+  border-radius: 1pc;
+  background-color: aquamarine;
+}
+button {
+  background-color: rgb(94, 94, 246);
+  padding: 10px;
+  border-radius: 1pc;
+  font-style: italic;
+}
