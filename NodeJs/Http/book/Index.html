@@ -26,6 +26,27 @@
         Add new Book
       </button>
     </form>
+    <form id="POST">
+      <input
+        style="color: black; background-color: wheat"
+        type="text"
+        name="newname"
+        id="newname"
+        required
+        placeholder="Enter the books newname"
+      />
+      <input
+        style="color: black; background-color: wheat"
+        type="number"
+        name="bookId"
+        required
+        id="bookId"
+        placeholder="enter teh bokks Id to update"
+      />
+      <button type="submit" style="color: black; background-color: wheat">
+        UPdate
+      </button>
+    </form>
   </body>
   <script>
     let get = document.getElementById("getBook");
@@ -55,6 +76,31 @@
       });
       response = await response.json();
       console.log("AFTER ADDING NEW BOOK the server sent us ", response);
+    });
+    let PostForm = document.getElementById("POST");
+    PostForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const bookId = PostForm.bookId.value;
+      const bookname = PostForm.newname.value;
+      console.log(bookId, bookname);
+      let updatedBook = await fetch(`/book/:id`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id: bookId, name: bookname }),
+      })
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("Error Fethcing The given opration");
+          }
+          return response.json();
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+      // const { name, id } = updatedBook;
+      // alert(`The updated Name for teh bookId ${id} id ${name}`);
+      console.log(updatedBook);
     });
   </script>
 </html>

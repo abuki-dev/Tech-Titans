@@ -59,7 +59,37 @@ const server = http.createServer(async (req, res) => {
         sendResponse(400, "text/plain", "Error", res);
       }
     });
-  } else return sendResponse(404, "text/plain", "404 page not found", res);
+  } else if (url === `/book/:id` && method === "PUT") {
+    let json = "";
+    req.on("data", (chun) => {
+      json += chun;
+    });
+    req.on("end", () => {
+      const bookupdtae = JSON.parse(json);
+      let isfounded = BOOKS.find(({ id }) => id == bookupdtae.id);
+      console.log("findig teh bog with teh given id");
+
+      if (isfounded) {
+        isfounded.name = bookupdtae.name;
+        const { name, id } = bookupdtae;
+        sendResponse(
+          200,
+          "application/json",
+          JSON.stringify({ name, id }),
+          res,
+        );
+      } else
+        return sendResponse(
+          200,
+          "text/plain",
+          JSON.stringify({
+            message:
+              "The book with the given id Is not founded ID:" + bookupdtae.id,
+          }),
+          res,
+        );
+    });
+  } else return sendResponse(404, "text/plain", "404 page not founded", res);
 });
 function sendResponse(code, type, data, response) {
   response.writeHead(code, { "content-type": `${type}` });
@@ -70,6 +100,5 @@ server.listen(4000, () => {
   console.log("the server is runnig port 4000");
 });
 
-
 //Tomorows tastk implementig delete method using displayer for the bok with corosponding remove button
-// that removes the book from the server array 
+// that removes the book from the server array
