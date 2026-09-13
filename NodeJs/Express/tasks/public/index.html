@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Book Management System</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 Book Manager</h1>
+
+      <div class="forms-grid">
+        <!-- FORM 1: ADD BOOK -->
+        <div class="card add">
+          <h2>➕ Add New Book</h2>
+          <form action="/books" method="POST">
+            <div class="form-group">
+              <label for="title">Book Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="e.g. Clean Code"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                placeholder="e.g. Robert C. Martin"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="year">Published Year</label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                placeholder="e.g. 2008"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-add">Save Book</button>
+          </form>
+        </div>
+
+        <!-- FORM 2: GET / SEARCH BOOK -->
+        <div class="card get">
+          <h2>🔍 Find a Book</h2>
+          <form action="/books/search" method="GET">
+            <div class="form-group">
+              <label for="searchId">Book ID or Title</label>
+              <input
+                type="text"
+                id="searchId"
+                name="query"
+                placeholder="Enter ID or title..."
+                required
+              />
+            </div>
+            <button type="submit" class="btn-get">Search Book</button>
+          </form>
+        </div>
+
+        <!-- FORM 3: DELETE BOOK -->
+        <div class="card delete">
+          <h2>🗑️ Delete Book</h2>
+          <form action="/books/delete" method="POST">
+            <div class="form-group">
+              <label for="deleteId">Book ID</label>
+              <input
+                type="text"
+                id="deleteId"
+                name="bookId"
+                placeholder="Enter Book ID to delete"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-delete">Delete Permanently</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
