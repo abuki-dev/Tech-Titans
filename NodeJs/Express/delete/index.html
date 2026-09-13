@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="deleteBook">
+      <button type="submit">Dellet Books</button>
+    </form>
+    <form id="getBooks" action="/getBooks" method="get">
+      <button type="submit">get Books</button>
+    </form>
+    <script>
+      let deletForm = document.getElementById("deleteBook");
+      let getBooks = document.getElementById("getBooks");
+      deletForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch("/deleteBook", {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ action: "This Server gets the request " }),
+        })
+          .then((Response) => Response.json())
+          .then((data) => {
+            const { message, books } = data;
+            console.log("Recived Message from the server :", message);
+            return data;
+          })
+          .then((remainbooks) =>
+            console.log("The remain Boks after deleted are", remainbooks),
+          )
+          .catch((err) => console.err(err.message));
+      });
+      getBooks.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch("/getBooks")
+          .then((Response) => Response.json())
+          .then((books) => console.log("All Bokks Are ", books))
+          .catch((err) => console.error(err.message));
+      });
+    </script>
+  </body>
+</html>
