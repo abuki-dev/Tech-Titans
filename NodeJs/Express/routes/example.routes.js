@@ -2,14 +2,17 @@ const express = require("express");
 const app = express();
 app.use(express.json()); // this app can acept JSONS and pars them automatically
 app
-  .route("/prefi_path")
+  .route("/profile_path")
   .get((req, res) => {
-    res.send("Fethig teh users Data");
+    res.send("Fethig the users Data");
   })
   .post((req, res) => {
     const { name } = req.body;
     console.log(name);
     res.json({ name: name });
+  })
+  .delete((req, res) => {
+    res.send("Deletin profile");
   });
 // we can chan and add more an dmore methods for teh path .prfofilrpath
 
@@ -24,4 +27,5 @@ app.listen(1000, () => {
 // see the file named usesrs.routes.js  teh come back and continue here
 
 const usersrouter = require("./users.routes");
-app.use("/user", usersrouter); //teh teh expers ap to use this min express ap whwnevr teh reques cames from the /user path
+app.use("/user", usersrouter); //tell the expers app to use this mini express app whwnevr the request cames from the /user path
+

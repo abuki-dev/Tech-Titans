@@ -44,6 +44,7 @@ app.get("/user", (req, res) => {
 //?.redirect()
 // if we wanted to redirect the user to the new url we use .redirect()
 app.get("/login", async (req, res) => {
+  //
   await setTimeout(() => {
     res.redirect("/user"); //if aseked me her i wil send him to the user
   }, 3000);
@@ -52,7 +53,7 @@ app.get("/login", async (req, res) => {
 //?.status() with other methods like send or any  other
 // this method allows us to control teh status code of the http
 app.get("/notfoud", (rq, res) => {
-  res.status(401).send("NOT found");
+  res.status(404).send("NOT found");
 });
 
 ////.render()
@@ -66,6 +67,8 @@ app.get("/profile", (req, res) => {
 app.get("/path", (req, res) => {
   res.send("Routehd to this Path ");
 });
+
+//?.sendFile()
 
 //-Chainable Routhe creations
 //W e ue app.route() to colecet the same routing path
