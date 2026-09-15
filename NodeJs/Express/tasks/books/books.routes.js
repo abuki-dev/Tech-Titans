@@ -93,6 +93,8 @@ booksRouter.post("/delete", (req, res) => {
 //seach Book new ID
 booksRouter.get("/search", (req, res) => {
   const { query } = req.query;
+  const actual=req.body
+
   console.log(query);
   //now let us find that book inside the the Array of Books
   const bookfounded = books.find(({ id }) => id === Number(query));
@@ -106,3 +108,6 @@ booksRouter.get("/search", (req, res) => {
 });
 
 module.exports = booksRouter;
+
+//Req get Query not body
+//Req post Body not query

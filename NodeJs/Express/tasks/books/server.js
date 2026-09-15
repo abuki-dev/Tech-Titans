@@ -4,6 +4,7 @@ const PORT = 3030;
 const booksRouter = require("./books.routes");
 const app = express();
 app.use(express.urlencoded({ extended: true })); //allows us to use parsing the JSON automatically for post from Forms
+app.use(express.json()); // fecth reeat app
 app.use(express.static(path.join(__dirname, "../public"))); //serves the /public folder
 app.use("/books", booksRouter);
 

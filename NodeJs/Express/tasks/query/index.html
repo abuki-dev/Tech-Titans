@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-grid">
+        <!-- FORM 2: GET / SEARCH BOOK -->
+        <div class="card get">
+          <h2>🔍 Find a Book</h2>
+          <form action="/book/filter" method="GET">
+            <div class="form-group">
+              <label for="searchId">Book ID or Title</label>
+              <input
+                type="text"
+                id="searchId"
+                name="query"
+                placeholder="Enter ID or title..."
+                required
+              />
+            </div>
+            <button type="submit" class="btn-get">Search Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
