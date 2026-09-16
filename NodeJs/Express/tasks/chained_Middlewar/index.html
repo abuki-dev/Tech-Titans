@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./image.png" type="image/x-icon" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+
+      margin-top: 90px;
+      flex-wrap: wrap;
+      background-color: bisque;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 1pc;
+      background-color: aqua;
+      width: max-content;
+    }
+    #admin {
+      background: rgb(64, 245, 64);
+      border: solid rgb(94, 94, 228);
+    }
+    #user {
+      background-color: rgb(190, 245, 153);
+    }
+    #hacker {
+      background-color: rgb(255, 51, 0);
+    }
+  </style>
+  <body>
+    <button id="admin" data-token="mytoken">Save Securyty As admin</button>
+    <button id="user" data-token="mytoken">Save Securyty As user</button>
+    <button id="hacker" data-token="invalidToken">
+      Save Securyty As hacker
+    </button>
+  </body>
+  <script>
+    let buttons = Array.from(document.getElementsByTagName("button"));
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const response = await saveSecurytiy(btn.id, btn.dataset.token);
+        try {
+          console.log("Servers Response", response);
+          confirm(response.message);
+        } catch (error) {
+          console.warn("erroR happend", error.message);
+        }
+      });
+    });
+    async function saveSecurytiy(usertype, token) {
+      return await fetch("/settings/security", {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          "x-token": token,
+        },
+        body: JSON.stringify({
+          message: "Hellow From The server",
+          userRole: usertype,
+        }),
+      })
+        .then((response) => response.json())
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  </script>
+</html>
