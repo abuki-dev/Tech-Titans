@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./image.png" type="image/x-icon" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      background-color: aquamarine;
+      padding: 20px;
+      border: solid;
+      border-radius: 1pc;
+    }
+    button {
+      padding: 10px;
+      border-radius: 1pc;
+      background-color: greenyellow;
+      width: auto;
+    }
+  </style>
+  <body>
+    <h1>Hellow This Is expres</h1>
+    <button id="home">Home</button>
+  </body>
+  <script>
+    let button = document.getElementById("home");
+    button.addEventListener("click", async () => {
+      let response = await fetch("/home", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-token": "Mysiganture",
+        },
+        body: JSON.stringify({ message: "Hellow From The server" }),
+      })
+        .then((response) => response.json())
+        .catch((err) => {
+          console.log(err.message);
+        });
+      try {
+        console.table("The servers Response", response);
+      } catch (error) {
+        console.log(err.message);
+      }
+    });
+  </script>
+</html>
