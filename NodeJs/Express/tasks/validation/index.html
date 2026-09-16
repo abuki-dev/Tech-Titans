@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-grid">
+        <!-- FORM 2: GET / SEARCH BOOK -->
+        <div class="card add">
+          <h2>➕ Add New Book</h2>
+          <form action="/books" method="POST">
+            <div class="form-group">
+              <label for="title">Book Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="e.g. Clean Code"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                placeholder="e.g. Robert C. Martin"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="year">Published Year</label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                placeholder="e.g. 2008"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-add">Save Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
