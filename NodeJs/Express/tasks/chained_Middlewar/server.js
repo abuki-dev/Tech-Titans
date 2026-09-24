@@ -63,8 +63,8 @@ app.use(express.json()); // allows json paring autmaticaly
 // serve request from the directory
 app.use(express.static(path.join(__dirname)));
 
-// now let us use ourcustom cahined middleware
-// the route calles teh otehfuntions outimatucakky no need to calll them inside
+// now let us use our custome cahined middleware
+// the route calles the other funcions automatically no need to calll them inside
 app.put(
   "/settings/security",
   verfyToken(),

@@ -1,5 +1,16 @@
-const path = require("path");
-console.log(path.join(__dirname, "../public"));
-let ab = { title: "", author: "abuki", year: "4000" };
-const { title } = ab;
-console.log(!title.trim());
+const e = require("express");
+
+const app = e();
+
+app.get("/:ab", (req, res) => {
+  console.log(req.params.ab);
+  res.send("You are askint the " + req.params.ab);
+});
+
+app.get("/", (req, res) => {
+  console.log("Ip" + req.ip);
+  res.send("<h1>Hleoow ther</h1>");
+});
+app.listen(5000, () => {
+  console.log("Im running here 5000");
+});
