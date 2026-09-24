@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tier request</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Tier request</h1>
+
+      <form action="/submit" id="tierForm">
+        <label for="user-tier">Your current tier</label>
+        <select id="user-tier" name="user_tier">
+          <option value="bronze">Bronze</option>
+          <option value="silver">Silver</option>
+          <option value="gold">Gold</option>
+          <option value="platinum">Platinum</option>
+        </select>
+
+        <p class="hint">Choose the tier you want to request:</p>
+
+        <div class="buttons">
+          <button
+            type="submit"
+            name="request"
+            value="bronze"
+            class="btn bronze"
+          >
+            Bronze
+          </button>
+          <button
+            type="submit"
+            name="request"
+            value="silver"
+            class="btn silver"
+          >
+            Silver
+          </button>
+          <button type="submit" name="request" value="gold" class="btn gold">
+            Gold
+          </button>
+          <button
+            type="submit"
+            name="request"
+            value="platinum"
+            class="btn platinum"
+          >
+            Platinum
+          </button>
+        </div>
+      </form>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
