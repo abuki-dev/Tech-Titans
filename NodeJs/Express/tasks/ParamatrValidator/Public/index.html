@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search by category</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Find items</h1>
+      <p class="lead">Choose a category to see what is available.</p>
+
+      <form id="searchForm" action="/search" method="get">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="fruits">Fruit</option>
+          <option value="vegetables">Vegetable</option>
+          <option value="dairy">Dairy</option>
+          <option value="bakery">Bakery</option>
+          <option value="drinks">Drinks</option>
+          <option value="household">Household</option>
+          <option value="wardrobes">Wardrobes</option>
+          <option value="shoes">Shoes</option>
+        </select>
+
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
