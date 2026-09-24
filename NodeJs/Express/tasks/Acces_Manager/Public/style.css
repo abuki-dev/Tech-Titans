@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #1f2430;
+  color: #1f2430;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  background: #f6f4ef;
+  border-radius: 10px;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #1f2430;
+  border-radius: 6px;
+  background: #fff;
+  color: black;
+}
+
+.hint {
+  margin: 1.5rem 0 0.6rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:focus-visible,
+select:focus-visible {
+  outline: 3px solid #1f2430;
+  outline-offset: 2px;
+}
+
+.bronze {
+  background: #b0703c;
+  color: #fff;
+}
+.silver {
+  background: #c4c8cf;
+  color: #1f2430;
+}
+.gold {
+  background: #e0b422;
+  color: #1f2430;
+}
+.platinum {
+  background: #dfe6ee;
+  color: #1f2430;
+  border: 2px solid #9aa7b6;
+}
