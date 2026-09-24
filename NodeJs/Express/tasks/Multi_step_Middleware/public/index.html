@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User type</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header class="panel-head">
+        <h1>Select user type</h1>
+        <p>Pick how the ID is stored, then choose the user type to submit.</p>
+      </header>
+
+      <form id="deleteItem">
+        <div class="field">
+          <label for="id-type">ID format</label>
+          <select id="id-type" name="id_type">
+            <option value="12">Number ID</option>
+            <option value="Item123">String ID</option>
+          </select>
+        </div>
+
+        <div class="roles">
+          <button
+            type="submit"
+            name="user_type"
+            value="admin"
+            class="role admin"
+          >
+            Admin
+          </button>
+          <button
+            type="submit"
+            name="user_type"
+            value="assistant"
+            class="role assistant"
+          >
+            Assistant
+          </button>
+          <button
+            type="submit"
+            name="user_type"
+            value="manager"
+            class="role manager"
+          >
+            Manager
+          </button>
+          <button type="submit" name="user_type" value="user" class="role user">
+            User
+          </button>
+        </div>
+      </form>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

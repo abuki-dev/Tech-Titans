@@ -1,0 +1,156 @@
+:root {
+  --ink: #14233a;
+  --muted: #55657d;
+  --page: #dfe6ee;
+  --panel: #ffffff;
+  --line: #c9d3df;
+
+  --admin: #b3261e;
+  --assistant: #0f7b6c;
+  --manager: #5b3fa8;
+  --user: #2358a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--page);
+}
+
+.panel {
+  width: 100%;
+  max-width: 460px;
+  background: var(--panel);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px -22px rgba(20, 35, 58, 0.45);
+  overflow: hidden;
+}
+
+.panel-head {
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.panel-head p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+form {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  padding: 0.8rem 2.5rem 0.8rem 0.9rem;
+  font: inherit;
+  color: var(--ink);
+  background-color: #f5f8fb;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.3rem) 55%,
+    calc(100% - 0.95rem) 55%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+
+select:hover {
+  border-color: var(--ink);
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.role {
+  padding: 1rem 0.75rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+}
+
+.role:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.role:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.role:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.admin {
+  background: var(--admin);
+}
+.assistant {
+  background: var(--assistant);
+}
+.manager {
+  background: var(--manager);
+}
+.user {
+  background: var(--user);
+}
+
+@media (max-width: 380px) {
+  .roles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role {
+    transition: none;
+  }
+  .role:hover {
+    transform: none;
+  }
+}
