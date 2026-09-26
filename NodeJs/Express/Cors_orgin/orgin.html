@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Receiver</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, sans-serif;
+        background: #f1ece1;
+      }
+      .card {
+        padding: 2rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        text-align: center;
+      }
+      button {
+        padding: 0.8rem 1.5rem;
+        font: inherit;
+        font-weight: 700;
+        color: #fff;
+        background: #1f6f4a;
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Receiver</h1>
+      <button id="fetchBtn">Fetch message</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("fetchBtn")
+        .addEventListener("click", async () => {
+          const response = await fetch("http://localhost:4010");
+          const data = await response.json();
+          alert(data.message);
+        });
+    </script>
+  </body>
+</html>
