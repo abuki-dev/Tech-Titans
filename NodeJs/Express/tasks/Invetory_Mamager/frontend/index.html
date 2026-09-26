@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="card">
+        <h1>Add product</h1>
+        <p class="lead">Create a new product as an admin.</p>
+
+        <form
+          id="addProductForm"
+          action="/products/addproduct"
+          method="post"
+          novalidate
+        >
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="price">Price</label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            step="0.01"
+            min="0"
+            required
+          />
+
+          <label for="stock">Stock</label>
+          <input
+            id="stock"
+            name="stock"
+            type="number"
+            step="1"
+            min="0"
+            required
+          />
+
+          <button type="submit" class="btn primary">Add product</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h1>Look up product</h1>
+        <p class="lead">Pick an existing product or type a new name.</p>
+
+        <form id="getProductForm" action="/products" method="get">
+          <label for="productname">Product name</label>
+          <input
+            id="productname"
+            name="productname"
+            type="text"
+            list="productOptions"
+            required
+            placeholder="Start typing or choose one"
+          />
+          <datalist id="productOptions">
+            <option value="Wireless Mouse"></option>
+            <option value="Mechanical Keyboard"></option>
+            <option value="USB-C Hub"></option>
+            <option value="27-inch Monitor"></option>
+            <option value="Webcam 1080p"></option>
+            <option value="Noise-Cancelling Headphones"></option>
+            <option value="Laptop Stand"></option>
+            <option value="External SSD 1TB"></option>
+            <option value="Bluetooth Speaker"></option>
+            <option value="Desk Lamp"></option>
+          </datalist>
+
+          <button type="submit" class="btn secondary">Look up</button>
+        </form>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
