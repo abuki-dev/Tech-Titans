@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSP Nonce Test</title>
+  </head>
+  <body>
+    <h1>CSP Nonce Test</h1>
+
+    <!-- The inline script works ONLY because the nonce matches the header -->
+    <script nonce=`${res.locals.nonce}`>
+      console.log("✅ Success: Inline script with valid nonce executed!");
+    </script>
+  </body>
+</html>
