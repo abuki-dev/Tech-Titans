@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JWT demo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>JWT demo</h1>
+
+    <input id="username" value="abebe" placeholder="username" />
+    <input id="password" value="1234" type="password" placeholder="password" />
+    <button id="login">Login</button>
+
+    <p>
+      <button id="profileCookie">Profile (cookie)</button>
+      <button id="profileBearer">Profile (Bearer from localStorage)</button>
+      <button id="decode">Decode token</button>
+      <button id="logout">Logout</button>
+    </p>
+
+    <pre
+      id="out"
+      style="background: #eee; padding: 1rem; white-space: pre-wrap"
+    >
+Click Login first.</pre
+    >
+
+    <!-- external script, so it also works under a strict CSP (script-src 'self') -->
+    <script src="./script.js"></script>
+  </body>
+</html>

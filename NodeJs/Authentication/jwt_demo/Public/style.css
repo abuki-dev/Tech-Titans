@@ -1,0 +1,213 @@
+:root {
+  --paper: #eef1f5;
+  --surface: #ffffff;
+  --ink: #1b2433;
+  --muted: #5d6879;
+  --line: #cfd6e0;
+  --accent: #2b5fd9;
+  --accent-ink: #ffffff;
+  --danger: #b3261e;
+
+  /* the three parts of a JWT each get their own color */
+  --seg-header: #a86a00;
+  --seg-header-bg: #fff3d6;
+  --seg-payload: #2b5fd9;
+  --seg-payload-bg: #e3ebff;
+  --seg-sig: #1a7a5a;
+  --seg-sig-bg: #dff3ea;
+
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1rem/1.55 var(--sans);
+}
+
+.wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+h2 {
+  margin: 2rem 0 0.6rem;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+/* ---------- the token: the one memorable element ---------- */
+.token {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.token .empty {
+  color: var(--muted);
+  font-family: var(--sans);
+}
+.token .dot {
+  color: var(--muted);
+}
+.token .seg {
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+.seg.header {
+  color: var(--seg-header);
+  background: var(--seg-header-bg);
+}
+.seg.payload {
+  color: var(--seg-payload);
+  background: var(--seg-payload-bg);
+}
+.seg.sig {
+  color: var(--seg-sig);
+  background: var(--seg-sig-bg);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.legend i {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.4rem;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+.legend .header i {
+  background: var(--seg-header);
+}
+.legend .payload i {
+  background: var(--seg-payload);
+}
+.legend .sig i {
+  background: var(--seg-sig);
+}
+
+/* ---------- login form ---------- */
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+.field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.field input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: var(--ink);
+}
+.btn.primary {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn.primary:hover {
+  filter: brightness(1.1);
+}
+.btn.danger {
+  color: var(--danger);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+/* ---------- response panel ---------- */
+.out {
+  margin: 0;
+  min-height: 7rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: 0.875rem/1.6 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 34rem) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+  .login .btn {
+    width: 100%;
+  }
+}
