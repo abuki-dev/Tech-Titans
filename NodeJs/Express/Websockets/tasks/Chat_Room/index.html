@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket 10-Client Chat Room</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased flex flex-col h-screen overflow-hidden"
+  >
+    <!-- Top Header -->
+    <header
+      class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between shadow-md"
+    >
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+        <h1 class="text-xl font-bold tracking-wide text-emerald-400">
+          WebSocket Multi-Client Chamber
+        </h1>
+      </div>
+      <p class="text-xs text-slate-400">
+        5 Left Clients | Central Chat Room | 5 Right Clients
+      </p>
+    </header>
+
+    <!-- Main 3-Column Layout -->
+    <div class="flex-1 grid grid-cols-12 gap-4 p-4 overflow-hidden">
+      <!-- Left Panel: 5 Clients -->
+      <div
+        id="left-clients"
+        class="col-span-3 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto"
+      >
+        <h2
+          class="text-xs font-bold uppercase tracking-wider text-slate-400 px-1"
+        >
+          Left Wing Clients (1-5)
+        </h2>
+      </div>
+
+      <!-- Middle Panel: Central Chat Room -->
+      <div
+        class="col-span-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
+      >
+        <div
+          class="bg-slate-800/80 px-4 py-3 border-b border-slate-700/50 flex items-center justify-between"
+        >
+          <span class="font-semibold text-sm text-slate-200"
+            >Global Broadcast Room</span
+          >
+          <span
+            id="active-count"
+            class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full"
+            >10 Sockets Active</span
+          >
+        </div>
+
+        <!-- Messages Log Feed -->
+        <div
+          id="chat-messages"
+          class="flex-1 p-4 overflow-y-auto flex flex-col gap-3"
+        >
+          <div class="text-center text-xs text-slate-500 my-2">
+            -- System initialized. Waiting for transmissions --
+          </div>
+        </div>
+
+        <!-- Broadcast Control Bar -->
+        <div class="p-3 bg-slate-800/50 border-t border-slate-800 flex gap-2">
+          <input
+            id="broadcast-input"
+            type="text"
+            placeholder="Type a message to broadcast from a random client..."
+            class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors"
+          />
+          <button
+            id="broadcast-btn"
+            class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/10 cursor-pointer"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Panel: 5 Clients -->
+      <div
+        id="right-clients"
+        class="col-span-3 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto"
+      >
+        <h2
+          class="text-xs font-bold uppercase tracking-wider text-slate-400 px-1"
+        >
+          Right Wing Clients (6-10)
+        </h2>
+      </div>
+    </div>
+
+    <!-- Client Script -->
+    <script>
+      const clients = [];
+      const leftContainer = document.getElementById("left-clients");
+      const rightContainer = document.getElementById("right-clients");
+      const chatMessages = document.getElementById("chat-messages");
+      const broadcastInput = document.getElementById("broadcast-input");
+      const broadcastBtn = document.getElementById("broadcast-btn");
+
+      // Avatar image seed generator using UI Avatars service
+      const avatars = [
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop&crop=faces",
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop&crop=faces",
+      ];
+
+      // Spawn 10 clients
+      for (let i = 1; i <= 10; i++) {
+        const ws = new WebSocket("ws://localhost:4000");
+        ws.mark = i;
+
+        const card = document.createElement("div");
+        card.className =
+          "bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex items-center gap-3 shadow-sm transition-all hover:border-emerald-500/40";
+
+        const avatar = document.createElement("img");
+        avatar.src = avatars[i - 1];
+        avatar.className =
+          "w-10 h-10 rounded-full object-cover border-2 border-emerald-500/40 shadow-inner";
+
+        const info = document.createElement("div");
+        info.className = "flex-1 min-w-0";
+
+        const name = document.createElement("p");
+        name.className = "text-xs font-bold text-slate-200 truncate";
+        name.textContent = `Client #${i}`;
+
+        const status = document.createElement("p");
+        status.className = "text-[10px] text-emerald-400 font-medium";
+        status.textContent = "Online";
+
+        info.append(name, status);
+        card.append(avatar, info);
+
+        // Append to left (1-5) or right (6-10)
+        if (i <= 5) {
+          leftContainer.append(card);
+        } else {
+          rightContainer.append(card);
+        }
+
+        // Handle incoming broadcast messages from server
+        ws.onmessage = (event) => {
+          const bubble = document.createElement("div");
+          bubble.className =
+            "bg-slate-800/90 border border-slate-700/70 rounded-xl p-3 text-xs text-slate-300 shadow-sm animate-fade-in flex flex-col gap-1";
+
+          const meta = document.createElement("div");
+          meta.className =
+            "flex justify-between items-center text-[10px] text-slate-400 font-semibold";
+          meta.innerHTML = `<span class="text-emerald-400">Receiver Client #${i}</span><span>${new Date().toLocaleTimeString()}</span>`;
+
+          const text = document.createElement("p");
+          text.textContent = event.data;
+
+          bubble.append(meta, text);
+          chatMessages.append(bubble);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        ws.onclose = () => {
+          status.textContent = "Disconnected";
+          status.className = "text-[10px] text-rose-400 font-medium";
+          card.classList.add("opacity-50");
+        };
+
+        clients.push(ws);
+      }
+
+      // Broadcast message using Client #1 when clicking Send button
+      function sendBroadcast() {
+        const text = broadcastInput.value.trim();
+        if (!text) return;
+
+        // Pick client #1 to trigger the server broadcast
+        if (clients[0] && clients[0].readyState === WebSocket.OPEN) {
+          clients[0].send(JSON.stringify({ message: text }));
+          broadcastInput.value = "";
+        } else {
+          alert("Client #1 is not connected!");
+        }
+      }
+
+      broadcastBtn.addEventListener("click", sendBroadcast);
+      broadcastInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendBroadcast();
+      });
+    </script>
+  </body>
+</html>
