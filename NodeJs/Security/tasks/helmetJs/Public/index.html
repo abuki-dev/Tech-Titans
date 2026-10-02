@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSP Static Assets Test</title>
+    <!-- Linked external stylesheet (allowed by styleSrc: ['self']) -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Welcome to My Secure App</h1>
+    <p>Check out this image loaded locally:</p>
+    <img src="./logo.jpg" alt="Logo" width="100" />
+
+    <!-- Inline script using the dynamic placeholder nonce -->
+    <script nonce="`${nonce}`">
+      console.log(
+        "✅ Inline script executed successfully using the server-injected nonce!",
+      );
+    </script>
+
+    <!-- Linked external script (allowed by scriptSrc: ['self']) -->
+    <script src="/script.js"></script>
+  </body>
+</html>
