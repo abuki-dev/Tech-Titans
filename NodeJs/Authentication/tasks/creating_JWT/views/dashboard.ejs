@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard | <%= user.name %></title>
+    <!-- served from your Public/ folder by express.static -->
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <span class="brand">MyApp</span>
+      <form method="POST" action="/api/logout">
+        <button class="btn">Log out</button>
+      </form>
+    </header>
+
+    <main class="wrap">
+      <section class="card profile">
+        <img
+          id="avatar"
+          class="avatar"
+          src="<%= user.image %>"
+          alt="Photo of <%= user.name %>"
+          width="96"
+          height="96"
+          data-name="<%= user.name %>"
+        />
+
+        <div>
+          <!-- dashboard.js replaces this with Good morning / afternoon / evening -->
+          <p class="greeting" id="greeting">Welcome back</p>
+          <h1>Welcome back, <%= user.name %></h1>
+          <p class="muted"><%= user.email %></p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Account</h2>
+          <dl>
+            <dt>User ID</dt>
+            <dd><%= user.id %></dd>
+            <dt>Email</dt>
+            <dd><%= user.email %></dd>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h2>Session</h2>
+          <dl>
+            <dt>Status</dt>
+            <dd><span class="badge">Logged in</span></dd>
+            <dt>Local time</dt>
+            <dd id="clock">--:--</dd>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <!-- external file (no inline script) so it works under a strict CSP -->
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
