@@ -1,0 +1,163 @@
+:root {
+  --bg: #eef1f5;
+  --card: #ffffff;
+  --ink: #1b2433;
+  --muted: #5d6879;
+  --line: #cfd6e0;
+  --accent: #2b5fd9;
+  --ok-bg: #dff3ea;
+  --ok: #1a7a5a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    1rem/1.5 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.25rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.btn {
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: var(--ink);
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.profile h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.greeting {
+  margin: 0 0 0.15rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.handle {
+  margin: 0.1rem 0 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+.muted {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg);
+  background: var(--line);
+}
+/* shown instead of the photo if the image fails to load (see dashboard.js) */
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.grid h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+dl {
+  margin: 0;
+}
+dt {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+dd {
+  margin: 0 0 0.7rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: 0.85rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 34rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
