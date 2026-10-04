@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= status %> | <%= title %></title>
+    <link rel="stylesheet" href="/css/error.css" />
+  </head>
+  <body>
+    <main class="box">
+        <p class="code"><%= status %></p>
+    <h1><%= title %></h1>
+
+    <!-- the error message passed from the route / error handler -->
+    <p class="message" role="alert"><%= message %></p>
+
+    <% if (path) { %>
+      <p class="path">Requested: <code><%= path %></code></p>
+    <% } %>
+
+      <div class="actions">
+        <form class="btn" method="GET" action="/api/dashboard">
+          <button class="btn">Dashboard</button>
+        </form>
+        <form class="link" method="POST" action="/api/login">
+          <button class="btn">Log in</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
