@@ -10,8 +10,24 @@ const app = express();
 const api_router = require("./api.routes");
 const path = require("path");
 const morgan = require("morgan");
+const { default: helmet } = require("helmet");
 app.use(morgan("tiny"));
 
+// with hemet i can prevent logn attempts/ ip adress and i can set amd allow sub dimain reuqests
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        scriptSrc: ["'self'"],
+        imgSrc: ["'self'", "https:"],
+      },
+    },
+    strictTransportSecurity: {
+      maxAge: 36000,
+      includeSubDomains: true,
+    },
+  }),
+);
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "Public")));
 // first regester the api route to the exxpress app the order matters
