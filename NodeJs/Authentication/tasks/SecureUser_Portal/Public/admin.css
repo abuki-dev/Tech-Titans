@@ -1,0 +1,51 @@
+/*
+  admin.css: only what is DIFFERENT on the admin page.
+  Link it AFTER dashboard.css (it reuses the variables, card, and buttons).
+*/
+
+:root {
+  --rose: #be123c; /* darker than #f43f5e so it is easier to read on white */
+  --slate: #475569;
+}
+
+/* red accent line on top so the admin page feels different from the dashboard */
+.container.admin-card {
+  border-top: 4px solid var(--rose);
+}
+
+.admin-card h2 {
+  color: var(--rose);
+}
+
+/* On the dashboard each <p> is a label/value row.
+   Here the <p> are normal sentences, so undo the row layout. */
+.admin-card p {
+  display: block;
+  padding: 0.45rem 0;
+  border-bottom: 0;
+}
+
+.admin-card p strong {
+  flex: none;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* "Back to Dashboard" button (replaces the inline style) */
+.btn-secondary {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: var(--slate);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  filter: brightness(1.15);
+}

@@ -1,0 +1,127 @@
+:root {
+  --bg: #eef1f5;
+  --card: #ffffff;
+  --ink: #1b2433;
+  --muted: #5d6879;
+  --line: #cfd6e0;
+  --line-soft: #e6eaf0;
+  --accent: #2b5fd9;
+  --admin: #047857;
+  --danger: #b3261e;
+  --danger-bg: #fdecea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    1rem/1.5 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* ---------- the card ---------- */
+.container.profile-card {
+  width: 100%;
+  max-width: 28rem;
+  padding: 1.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.profile-card h2 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.9rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--line);
+}
+
+/* each <p> is one row: label on the left, value on the right */
+.profile-card p {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  overflow-wrap: anywhere;
+}
+
+.profile-card p strong {
+  flex: 0 0 6.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ---------- buttons ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-admin,
+.btn-danger {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-admin {
+  color: #fff;
+  background: var(--admin);
+}
+.btn-admin:hover {
+  filter: brightness(1.12);
+}
+
+.btn-danger {
+  margin-left: auto; /* pushes Log Out to the right */
+  color: var(--danger);
+  background: var(--card);
+  border-color: var(--danger);
+}
+.btn-danger:hover {
+  background: var(--danger-bg);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 30rem) {
+  .profile-card p {
+    flex-direction: column;
+    gap: 0;
+  }
+  .profile-card p strong {
+    flex-basis: auto;
+  }
+  .btn-danger {
+    margin-left: 0;
+  }
+}
