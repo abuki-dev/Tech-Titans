@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <div class="container profile-card">
+      <h2 style="color: #f43f5e">Admin Portal</h2>
+      <p>Welcome, Administrator <strong><%= admin.name %></strong>.</p>
+      <p>You have full access control permissions.</p>
+
+      <div class="actions">
+        <a
+          href="/dashboard"
+          style="
+            background-color: #475569;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+          "
+          >Back to Dashboard</a
+        >
+        <a href="/logout" class="btn-danger">Log Out</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <div class="container profile-card">
+    <h2>User Dashboard</h2>
+    <p><strong>Name:</strong> <%= user.name %></p>
+    <p><strong>Username:</strong> <%= user.username %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Role:</strong> <%= user.role %></p>
+
+    <div class="actions">
+      <% if (user.username === 'jdoe') { %>
+        <a href="/admin" style="background-color: #059669; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">Admin Panel</a>
+      <% } %>
+      <form action="/logout" method="post"><button type="submit" href="/logout" class="btn-danger">Log Out</button></form>
+
+    </div>
+  </div>
+</body>
+</html>
